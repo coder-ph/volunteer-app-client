@@ -1,48 +1,49 @@
-import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { GlobalContext } from '../../context'
-import AddEvent from '../../components/AddEvent';
-import { toast } from 'react-toastify';
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { GlobalContext } from "../../context";
+import AddEvent from "../../components/AddEvent";
+import { toast } from "react-toastify";
 
 export default function Details() {
-  const {id}= useParams()
+  const { id } = useParams();
   const {
     eventDetails,
     setEventDetals,
     handleChangeUpdate,
     updateEvent,
-    setUpdateEvent, handleDelete
+    setUpdateEvent,
+    handleDelete,
   } = useContext(GlobalContext);
 
-  async function handleSubmt (e){
-    e.preventDefault()
+  async function handleSubmt(e) {
+    e.preventDefault();
 
-    try{
-      const response = await fetch (`/event/${id}`, {
-        method: 'PUT',
+    try {
+      const response = await fetch(`/event/${id}`, {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(updateEvent)
-      })
+        body: JSON.stringify(updateEvent),
+      });
 
       if (response.ok) {
-        const updateEvent = await response.json()
-        setEventDetals(updateEvent)
+        const updateEvent = await response.json();
+        setEventDetals(updateEvent);
 
+        toast.success("Event logged successfully", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
-       toast.success("Event logged successfully", {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable:true,
-              progress:undefined,
-              theme:"colored"
-            })
-    }catch (e){
-      console.error(e)
+    } catch (e) {
+      console.error(e);
 
       toast.error("Encountered an error", {
         position: "top-right",
@@ -54,71 +55,87 @@ export default function Details() {
         progress: undefined,
         theme: "colored",
       });
-
     }
+
     setUpdateEvent({
-      location:'',
-      date:''
-    })
+      location: "",
+      date: "",
+    });
   }
- 
-  useEffect(()=>{
+
+  useEffect(() => {
     async function getEventDetails() {
       const response = await fetch(`/events/${id}`);
-      const data = await response.json()
-      console.log(data)
+      const data = await response.json();
 
-      if(data) {
-        setEventDetals(data)
+      if (data) {
+        setEventDetals(data);
       }
-      console.log(eventDetails)
     }
-    getEventDetails()
-  }, [])
+    getEventDetails();
+  }, []);
+
   return (
-    <>
-      <div className="container mx-auto">
-        <h1>
-          {eventDetails?.title} <span>{eventDetails?.organization?.name}</span>
+    <div className="container mx-auto px-15 py-8">
+      {/* Event Details Section */}
+      <div className="bg-white shadow-lg rounded-2xl p-6">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          {eventDetails?.title}
         </h1>
-        <p>{eventDetails?.description}</p>
-        <p>
-          {eventDetails?.location} <span>{eventDetails?.date}</span>
+        <p className="text-gray-600 text-lg mb-4">
+          {eventDetails?.description}
         </p>
+        <div className="flex justify-between text-gray-500 text-sm border-t pt-4">
+          <span className="font-semibold">
+            {eventDetails?.organization?.name}
+          </span>
+          <span>
+            {eventDetails?.location} • {eventDetails?.date}
+          </span>
+        </div>
       </div>
-      <AddEvent />
-      <div>
-        <form onSubmit={handleSubmt}>
-          <div className=" flex pl-16 gap-10">
+
+      {/* Add Event Component */}
+      <div className="mt-6 px-15">
+        <AddEvent />
+      </div>
+
+      {/* Update Event Form */}
+      <div className="mt-8 bg-gray-100 p-6 rounded-xl shadow-md px-15">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Edit Event</h2>
+        <form onSubmit={handleSubmt} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
-              type="string"
+              type="text"
               name="location"
               value={updateEvent.location}
               onChange={handleChangeUpdate}
-              placeholder="Enter location of event"
-              className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+              placeholder="Enter event location"
+              className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
             />
             <input
               type="date"
               name="date"
               value={updateEvent.date}
               onChange={handleChangeUpdate}
-              placeholder="Enter organization id"
-              className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+              className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
             />
-            <button>Log Edits</button>
           </div>
+          <button className="w-full md:w-1/3 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition">
+            Log Edits
+          </button>
         </form>
-      </div>{" "}
-      <br></br>
-      <div>
+      </div>
+
+      {/* Delete Event Button */}
+      <div className="mt-8 flex justify-center px-15">
         <button
-          onClick={()=> handleDelete(id)}
-          className="bg-red-500 text-white p-2 rounded-full mt-4"
+          onClick={() => handleDelete(id)}
+          className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-600 transition"
         >
           Delete Event
         </button>
       </div>
-    </>
+    </div>
   );
 }

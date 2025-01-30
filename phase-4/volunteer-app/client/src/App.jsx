@@ -16,7 +16,6 @@ function App() {
           <Route path="/event-item/:id" element={<Details />} />
           <Route path="/my-events" element={<TrackEvent />} />
         </Routes>
-        <EventItem />
       </div>
     </>
   );

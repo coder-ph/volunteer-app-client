@@ -1,62 +1,66 @@
-import React, { useContext } from 'react'
-import {toast} from 'react-toastify'
+import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GlobalContext } from '../context';
+import { GlobalContext } from "../context";
 
 export default function AddEvent() {
-    const { handleFormSubmit, formData, handleChange } =
-      useContext(GlobalContext);
+  const { handleFormSubmit, formData, handleChange } =
+    useContext(GlobalContext);
+
   return (
-    <div className="">
-      <form
-        className="flex flex-col grid-flow-col gap-10 p-5 "
-        onSubmit={handleFormSubmit}
-      >
-        <div className=" flex pl-10 gap-10">
+    <div className="bg-gray-100 p-6 rounded-xl shadow-md mt-6">
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        Add New Event
+      </h2>
+      <form onSubmit={handleFormSubmit} className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <input
-            type="Text"
+            type="text"
             name="title"
             onChange={handleChange}
             value={formData.title}
-            placeholder="Enter the name/title of the event"
-            className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400 "
+            placeholder="Enter event title"
+            className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
           />
           <input
-            type="string"
+            type="text"
             name="location"
             onChange={handleChange}
             value={formData.location}
             placeholder="Enter event location"
-            className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
           />
           <input
-            type="Text"
+            type="text"
             name="description"
             onChange={handleChange}
             value={formData.description}
             placeholder="Enter event description"
-            className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
           />
         </div>
-        <div className=" flex pl-10 gap-10">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <input
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            placeholder="Enter date of event"
-            className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
           />
           <input
-            type="Integer"
+            type="number"
             name="org_id"
             value={formData.org_id}
             onChange={handleChange}
-            placeholder="Enter organization id"
-            className="bg-white/75 p-3 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            placeholder="Enter organization ID"
+            className="w-full p-3 rounded-lg outline-none shadow-md focus:shadow-blue-400 bg-white"
           />
-          <button>Log Event</button>
         </div>
+
+        <button className="w-full md:w-1/3 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition">
+          Log Event
+        </button>
       </form>
     </div>
   );
