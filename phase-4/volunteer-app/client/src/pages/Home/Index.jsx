@@ -10,23 +10,6 @@ export default function Home() {
 
   return (
     <div>
-      <div className="pl-135 pt-10 pb-10">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
-          <input
-            type="text"
-            name="Search Event"
-            placeholder="Enter location ..."
-            className="bg-white/75 p-5 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
-            value={searchParam}
-            onChange={(e) => setSearchParam(e.target.value)}
-          />
-        </form>
-      </div>
       <div
         className="relative w-full h-[70vh] flex items-center justify-center bg-cover bg-center"
         style={{
@@ -44,9 +27,30 @@ export default function Home() {
           </h1>
           <p className="mt-4 text-lg md:text-xl leading-relaxed">
             Every action, no matter how small, has the power to create lasting
-            change. Join us today and be the reason someone smiles!
+            change. Whether you’re passionate about education, environmental
+            conservation, or community outreach, your time and skills can
+            transform lives. Volunteering is more than just giving back—it’s
+            about connecting with people, making an impact, and inspiring a
+            movement of kindness.
           </p>
         </div>
+      </div>
+      <div className="pl-135 pt-10 pb-10">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          <input
+            type="text"
+            name="Search Event"
+            placeholder="Enter location ..."
+            className="bg-white/75 p-5 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            value={searchParam}
+            onChange={(e) => setSearchParam(e.target.value)}
+          />
+        </form>
       </div>
 
       {/* Flex container to display EventItem in columns */}

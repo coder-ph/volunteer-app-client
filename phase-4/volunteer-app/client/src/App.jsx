@@ -9,7 +9,7 @@ import EventItem from "./components/EventItem";
 function App() {
   return (
     <>
-      <div className="min-h-screen p-6">
+      <div className="min-h-screen bg-[#F6F5F5] text-[#333D79]">
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -76,7 +76,7 @@ export default function Details() {
   }, []);
 
   return (
-    <div className="container mx-auto px-15 py-8">
+    <div className="container mx-auto px-15 py-8 pt-45">
       {/* Event Details Section */}
       <div className="bg-white shadow-lg rounded-2xl p-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
@@ -101,7 +101,7 @@ export default function Details() {
       </div>
 
       {/* Update Event Form */}
-      <div className="mt-8 bg-gray-100 p-6 rounded-xl shadow-md px-15">
+      <div className="mt-8 bg-gray-100 pt-16 rounded-xl shadow-md px-15">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Edit Event</h2>
         <form onSubmit={handleSubmt} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

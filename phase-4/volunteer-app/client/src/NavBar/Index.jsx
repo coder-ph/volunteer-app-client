@@ -4,7 +4,7 @@ import "boxicons";
 
 export default function NavBar() {
   return (
-    <nav className="p-6 shadow-md bg-white">
+    <nav className="p-6 shadow-md bg-[#b1bfdb] text-[#333D79] font-bold font-serif border-b-emerald-50 fixed w-full z-50">
       <div className="flex items-center justify-between">
         {/* Social Icons */}
         <ul className="flex gap-5">
@@ -30,17 +30,19 @@ export default function NavBar() {
 
         {/* Centered Navigation Buttons */}
         <ul className="flex pl-55 gap-10 mx-auto">
-          <button>About</button>
-          <button>Donate</button>
-          <button>Our Projects</button>
-          <button>Team</button>
-          <button>Contact</button>
+          <button className="text-[#333D79]">About</button>
+          <button className="text-[#333D79]">Donate</button>
+          <button className="text-[#333D79]">Our Projects</button>
+          <button className="text-[#333D79]">Team</button>
+          <button className="text-[#333D79]">Contact</button>
         </ul>
 
         {/* Organization Login & Careers - Moved to Right */}
         <ul className="flex gap-10 ml-auto">
-          <button className="cursor-pointer">Organization Login</button>
-          <button className="cursor-pointer">Careers</button>
+          <button className="cursor-pointer text-[#333D79]">
+            Organization Login
+          </button>
+          <button className="cursor-pointer text-[#333D79]">Careers</button>
         </ul>
       </div>
 

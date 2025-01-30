@@ -5,7 +5,7 @@ export default function EventItem({ event }) {
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/4">
       {/* Width control - adjusted for larger screens */}
-      <div className="bg-white shadow-xl border-2 rounded-2xl border-white p-4 transition-all duration-200 hover:bg-gray-100 hover:shadow-2xl h-105 flex flex-col">
+      <div className="bg-[#F0F1F4] shadow-xl border-2 rounded-2xl border-white p-4 transition-all duration-200 hover:bg-gray-100 hover:shadow-2xl h-105 flex flex-col">
         {/* Set height to be uniform */}
         <h2 className="font-black">{event?.title}</h2>
         <p>{event?.description}</p>
