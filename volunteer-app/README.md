@@ -18,3 +18,34 @@ This is a React-based Event Management application that allows users to view, cr
 
 - Toast notifications for success/error messages
 
+# 🚀 Tech Stack
+
+- Frontend: React, Tailwind CSS, React Router
+
+- Backend: Flask
+
+State Management: React Context API
+
+Notifications: React Toastify
+
+# ⚙️ Installation & Setup
+
+1️⃣ Clone the repository:
+
+git clone https://github.com/your-username/event-management-app.git
+cd event-management-app
+
+2️⃣ Install dependencies:
+
+npm install
+
+3️⃣ Start the JSON Server (if using json-server for backend):
+
+npx json-server --watch data/events.json --port 5000
+
+4️⃣ Start the React app:
+
+npm start
+
+The application should now be running on http://localhost:3000.
+
