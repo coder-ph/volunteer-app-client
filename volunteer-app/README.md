@@ -30,22 +30,38 @@ Notifications: React Toastify
 
 # ⚙️ Installation & Setup
 
-1️⃣ Clone the repository:
+## 1️⃣ Clone the repository:
 
-git clone https://github.com/your-username/event-management-app.git
-cd event-management-app
+git clone the repo
+cd `client`
 
 2️⃣ Install dependencies:
 
-npm install
+`npm install`
 
-3️⃣ Start the JSON Server (if using json-server for backend):
-
-npx json-server --watch data/events.json --port 5000
-
-4️⃣ Start the React app:
+3️⃣  Start the React app:
 
 npm start
 
 The application should now be running on http://localhost:3000.
 
+# 🔥 Usage
+
+- View Events → Navigate to the homepage to see a list of events.
+
+- Add Event → Use the form to add a new event.
+
+- Edit Event → Click on an event to update its details.
+
+- Delete Event → Click the delete button to remove an event.
+
+- Search Event → Use the search bar to find events by location.
+
+# 📜 License
+
+This project is open-source and available under the MIT License.
+
+# Backend API
+[api](https://volunteer-app-srver.onrender.com/events)
+
+# Backend repo
