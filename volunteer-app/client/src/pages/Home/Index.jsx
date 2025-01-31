@@ -17,10 +17,8 @@ export default function Home() {
             "url('https://i.pinimg.com/736x/be/58/fd/be58fdf24c587c73880c2b3b747ba6fa.jpg')",
         }}
       >
-       
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
-      
         <div className="relative text-white font-bold font-serif text-center p-6 pt-25 max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Make a Difference, One Act at a Time!
@@ -35,25 +33,25 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="pl-150 pt-10 pb-10">
+      <div className="flex justify-center items-center w-full py-10 px-4">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
           }}
+          className="w-full max-w-lg"
         >
           <input
             type="text"
-            name="Search Event"
+            name="searchEvent"
             placeholder="Enter location ..."
-            className="bg-white/75 p-5 rounded-full outline-none lg:w-96 shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
+            className="bg-white/75 p-5 rounded-full outline-none w-full shadow-lg shadow-blue-300 focus:shadow-blue-400 hover:shadow-blue-400"
             value={searchParam}
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </form>
       </div>
 
-      
       <div className="flex flex-wrap gap-4 justify-start mt-6 pl-70">
         {data && data.length > 0 ? (
           data.map((event, index) => <EventItem key={index} event={event} />)
