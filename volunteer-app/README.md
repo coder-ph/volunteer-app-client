@@ -30,9 +30,9 @@ Notifications: React Toastify
 
 # ⚙️ Installation & Setup
 
-## 1️⃣ Clone the repository:
+- 1️⃣ Clone the repository:
 
-git clone the repo
+- git clone the repo
 cd `client`
 
 2️⃣ Install dependencies:
