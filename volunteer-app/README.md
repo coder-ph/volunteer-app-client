@@ -57,11 +57,18 @@ The application should now be running on http://localhost:3000.
 
 - Search Event → Use the search bar to find events by location.
 
-# 📜 License
-
-This project is open-source and available under the MIT License.
-
 # Backend API
+
 [api](https://volunteer-app-srver.onrender.com/events)
 
 # Backend repo
+
+- [Backend-repo](https://github.com/coder-ph/volunteer-app-server)
+
+# Website
+
+- [volunteer-app](https://volunteer-app-client-tqo4-git-main-coder-phs-projects.vercel.app/)
+
+# 📜 License
+
+This project is open-source and available under the MIT License.
